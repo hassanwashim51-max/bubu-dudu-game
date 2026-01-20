@@ -139,16 +139,19 @@ function drawGame() {
 
   // Player
   ctx.fillStyle = "#ff8fc4";
-  ctx.fillRect(player.x, player.y, player.width, player.height);
+  ctx.drawImage(bubuImg, player.x, player.y, 50, 50);
+  ctx.drawImage(duduImg, player.x + 30, player.y, 50, 50);
   ctx.font = "18px Comic Sans MS";
   ctx.fillText("👶", player.x + 12, player.y + 32);
 
   // Coins
   ctx.fillStyle = "#ffd700";
   coins.forEach(c => {
-    ctx.beginPath();
-    ctx.arc(c.x, c.y, c.radius, 0, Math.PI * 2);
-    ctx.fill();
+  ctx.beginPath();
+  ctx.drawImage(bubuImg, player.x, player.y, 50, 50);
+  ctx.drawImage(duduImg, player.x + 30, player.y, 50, 50);
+    
+  ctx.fill();
   });
 
   // Obstacles
@@ -184,3 +187,17 @@ canvas.addEventListener("mousemove", e => {
   const rect = canvas.getBoundingClientRect();
   player.x = e.clientX - rect.left - player.width / 2;
 });
+ let balloons = [];
+function spawnBalloon() {
+  balloons.push({
+    x: Math.random() * 320,
+    y: -30,
+    speed: 2
+  });
+}
+balloons.forEach(b => {
+  ctx.drawImage(balloonImg, b.x, b.y, 30, 30);
+});
+if (score % 10 === 0) {
+  ctx.drawImage(awanshaImg, 140, 200, 80, 80);
+}
