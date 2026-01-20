@@ -188,7 +188,7 @@ canvas.addEventListener("mousemove", e => {
   player.x = e.clientX - rect.left - player.width / 2;
 });
  let balloons = [];
-function spawnBalloon() {
+ setInterval(spawnBalloon, 2000); // har 2 second {
   balloons.push({
     x: Math.random() * 320,
     y: -30,
@@ -196,8 +196,18 @@ function spawnBalloon() {
   });
 }
 balloons.forEach(b => {
+  b.y += b.speed;
   ctx.drawImage(balloonImg, b.x, b.y, 30, 30);
 });
-if (score % 10 === 0) {
-  ctx.drawImage(awanshaImg, 140, 200, 80, 80);
+if (score > 0 && score % 10 === 0 && !awanshaShown) {
+  awanshaShown = true;
+  levelSound.play();
 }
+}
+bubuImg.src = "images/bubu.png";
+duduImg.src = "images/dudu.png";
+coinImg.src = "images/coin.png";
+
+bgMusic.src = "sounds/music.mp3";
+coinSound.src = "sounds/collect.mp3";
+levelSound.src = "sounds/levelup.mp3";
