@@ -1,3 +1,18 @@
+// ===== LOAD IMAGES =====
+const bubuImg = new Image();
+bubuImg.src = "assets/images/bubu.png";
+
+const duduImg = new Image();
+duduImg.src = "assets/images/dudu.png";
+
+const awanshaImg = new Image();
+awanshaImg.src = "assets/images/awansha.png";
+
+const coinImg = new Image();
+coinImg.src = "assets/images/coin.png";
+
+const balloonImg = new Image();
+balloonImg.src = "assets/images/balloon.png";
 // ===== CANVAS SETUP =====
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
