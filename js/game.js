@@ -214,13 +214,15 @@ balloons.forEach(b => {
 });
 if (score > 0 && score % 10 === 0 && !awanshaShown) {
   awanshaShown = true;
-  levelSound.play();
+  navigator.vibrate(100);
 }
 }
 bubuImg.src = "images/bubu.png";
 duduImg.src = "images/dudu.png";
 coinImg.src = "images/coin.png";
-
-bgMusic.src = "sounds/music.mp3";
+const bgMusic = new Audio("sounds/music.mp3");
+bgMusic.loop = true;
+bgMusic.volume = 0.4;
 coinSound.src = "sounds/collect.mp3";
 levelSound.src = "sounds/levelup.mp3";
+const popSound = new Audio("sounds/pop.mp3");
